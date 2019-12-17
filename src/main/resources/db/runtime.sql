@@ -6,9 +6,9 @@ INSERT INTO public.book(title, author,troubles) VALUES ('LOTR 2', 'JR Tolkien',
 INSERT INTO public.book(title, author,troubles) VALUES ('LOTR 3', 'JR Tolkien',
 'da');
 
-INSERT INTO public.user(name, pwd,mail)
+INSERT INTO public.user( name, pwd,mail)
 VALUES ('Il', 'JRTolkien','Nein@da.com');
 INSERT INTO public.user( name, pwd,mail)
 VALUES ('fait', 'JRTolkien','Nein@ya.com');
 INSERT INTO public.user( name, pwd,mail)
-VALUES ('soif', 'JRTolkien','Nein@fuck.com');
+VALUES ( 'soif', 'JRTolkien','Nein@fuck.com');

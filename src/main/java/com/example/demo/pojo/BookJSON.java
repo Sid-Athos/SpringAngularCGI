@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.math.BigInteger;
 
 @Data
 public class BookJSON implements Serializable {

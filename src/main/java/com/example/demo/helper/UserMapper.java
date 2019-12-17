@@ -26,6 +26,7 @@ public class UserMapper {
         UserJSON bJSON = new UserJSON();
         bJSON.setName(book.getName());
         bJSON.setPwd(book.getPwd());
+        bJSON.setId(book.getId());
         bJSON.setMail(book.getMail());
         return bJSON;
     }
