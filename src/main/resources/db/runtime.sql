@@ -14,3 +14,6 @@ INSERT INTO public.user( name, pwd,mail)
 VALUES ('fait', 'JRTolkien','Nein@ya.com');
 INSERT INTO public.user( name, pwd,mail)
 VALUES ( 'soif', 'JRTolkien','Nein@fuck.com');
+
+INSERT INTO public.comment(date, author,content,postid) VALUES ('bonjour', 'John Doe',
+'le comment has arrived', 1);

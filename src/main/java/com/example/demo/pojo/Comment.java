@@ -23,8 +23,6 @@ public class Comment {
     @NotEmpty
     private String idPost;
     @NotEmpty
-    private String title;
-    @NotEmpty
     private Date date;
     @NotEmpty
     private String author;
