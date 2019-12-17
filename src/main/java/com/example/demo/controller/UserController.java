@@ -57,7 +57,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET, value = "/mail/{mail}")
     // FIXME not good path for REST ...
     public List<UserJSON> getAllByMail(@ApiParam(value = "Mail", required =
-            true) @PathVariable String title) {
-        return userService.getAllUsersByMail(title);
+            true) @PathVariable String mail) {
+        return userService.getAllUsersByMail(mail);
     }
 }

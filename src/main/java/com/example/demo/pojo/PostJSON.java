@@ -6,8 +6,9 @@ import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.math.BigInteger;
 
+// JSON Data structure
 @Data
-public class BookJSON implements Serializable {
+public class PostJSON implements Serializable {
 
     // Serializable to avoid Cannot serialize redis ERROR !
 
@@ -17,5 +18,5 @@ public class BookJSON implements Serializable {
     @NotEmpty
     private String author;
     @NotEmpty
-    private String troubles;
+    private String content;
 }

@@ -12,9 +12,11 @@ import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 
 //see https://fxrobin.developpez.com/tutoriels/java/lombok-retour-experience/
+
+// Table to generate on launch
 @Data
 @Entity
-public class Book {
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +26,6 @@ public class Book {
     @NotEmpty
     private String author;
     @NotEmpty
-    private String troubles;
+    private String content;
 }
 
