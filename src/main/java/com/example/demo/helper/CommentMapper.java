@@ -2,11 +2,12 @@ package com.example.demo.helper;
 
 import com.example.demo.pojo.Comment;
 import com.example.demo.pojo.CommentJSON;
+import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Component
 public class CommentMapper {
 
     public Comment mapTo(CommentJSON commentJSON) {
@@ -23,7 +24,7 @@ public class CommentMapper {
         CommentJSON bJSON = new CommentJSON();
         bJSON.setAuthor(comment.getAuthor());
         bJSON.setId(comment.getId());
-        bJSON.setIdPost(comment.getIdPost());
+        bJSON.setPostId(comment.getPostId());
         bJSON.setContent(comment.getContent());
         return bJSON;
     }

@@ -21,9 +21,9 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    private String idPost;
+    private String postId;
     @NotEmpty
-    private Date date;
+    private String date;
     @NotEmpty
     private String author;
     @NotEmpty

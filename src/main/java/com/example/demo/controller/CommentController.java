@@ -31,7 +31,7 @@ public class CommentController {
 
     // Select comments by post id
     @ApiOperation(value = "Get comment by post id")
-    @RequestMapping(method = RequestMethod.GET, value = "/comment/{id}")
+    @RequestMapping(method = RequestMethod.GET, value = "/comments/{id}")
     // FIXME not good path for REST ...
     public List<CommentJSON> getAllByPostId(@ApiParam(value = "PostId",
             required = true) @PathVariable String id) {
@@ -47,5 +47,4 @@ public class CommentController {
         // or JPA RollbackException (DB side)
         return commentService.addComment(comment);
     }
-
 }
