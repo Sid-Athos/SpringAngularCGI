@@ -4,18 +4,15 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.util.List;
 
 // JSON Data structure
 @Data
-public class PostJSON implements Serializable {
-
-    // Serializable to avoid Cannot serialize redis ERROR !
+public class LikeJSON implements Serializable {
 
     private Long id;
     @NotEmpty
-    private String title;
+    private Long post;
     @NotEmpty
-    private String author;
-    @NotEmpty
-    private String content;
+    private Long author;
 }

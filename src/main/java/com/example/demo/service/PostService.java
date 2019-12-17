@@ -23,14 +23,14 @@ public class PostService {
     private Mapper mapper;
 
     public List<PostJSON> getAllPosts() {
-        log.info("Called for getAllBooks ...");
+        //log.info("Called for getAllBooks ...");
         List<Post> bookList = postRepository.findAll();
         return mapper.mapTo(bookList);
     }
 
     @Cacheable(cacheManager = "redisCacheManager", cacheNames = "books", key = "#id")
     public PostJSON getPostById(long id) {
-        log.info("Called for getBookById ...");
+        //log.info("Called for getBookById ...");
         Post b = postRepository.getOne(id);
         return mapper.mapTo(b);
     }
