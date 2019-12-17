@@ -4,11 +4,10 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
-import java.util.List;
 
 // JSON Data structure
 @Data
-public class LikeJSON implements Serializable {
+public class LikesJSON implements Serializable {
 
     private Long id;
     @NotEmpty

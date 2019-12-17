@@ -10,7 +10,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 @Entity
-public class Like {
+public class Likes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
