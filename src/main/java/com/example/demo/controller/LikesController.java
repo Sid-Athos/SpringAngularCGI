@@ -1,8 +1,7 @@
 package com.example.demo.controller;
 
-
-import com.example.demo.pojo.LikeJSON;
-import com.example.demo.service.LikeService;
+import com.example.demo.pojo.LikesJSON;
+import com.example.demo.service.LikesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -20,29 +19,29 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(value = "likes", produces = MediaType.APPLICATION_JSON_VALUE)
-public class LikeController {
+public class LikesController {
 
     @Resource
-    private LikeService likeService; // Methods for the queries
+    private LikesService likesService; // Methods for the queries
 
-    // Adds a like
+    // Adds a likes
 
-    @ApiOperation(value = "Add Like", response = LikeJSON.class)
+    @ApiOperation(value = "Add Likes", response = LikesJSON.class)
     @RequestMapping(method = RequestMethod.POST, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public LikeJSON addLike(@ApiParam(value = "Like to Add", required = true) @Valid @RequestBody LikeJSON like) {
+    public LikesJSON addLike(@ApiParam(value = "Likes to Add", required = true) @Valid @RequestBody LikesJSON likes) {
         // test with @Valid : @Valid @RequestBody ... get Spring Bad Request 400 if NotEmpty
         // or JPA RollbackException (DB side)
-        return likeService.addLike(like);
+        return likesService.addLike(likes);
     }
 
     // Retrieves author specific like
 
-    @ApiOperation(value = "Get Like by Post")
-    @RequestMapping(method = RequestMethod.GET, value = "/like/{post}")
+    @ApiOperation(value = "Get Likes by Post")
+    @RequestMapping(method = RequestMethod.GET, value = "/likes/{post}")
     // FIXME not good path for REST ...
-    public LikeJSON getAllById(@ApiParam(value = "Like id",
-            required = true) @PathVariable Long id) {
-        return likeService.getLikeById(id);
+    public List<LikesJSON> getLikesByPost(@ApiParam(value = "Likes post",
+            required = true) @PathVariable Long post) {
+        return likesService.getLikesByPost(post);
     }
 }
