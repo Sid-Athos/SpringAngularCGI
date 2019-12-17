@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.util.Date;
 
 // JSON Data structure
 @Data
@@ -16,6 +17,8 @@ public class CommentJSON implements Serializable {
     private String idPost;
     @NotEmpty
     private String title;
+    @NotEmpty
+    private Date date;
     @NotEmpty
     private String author;
     @NotEmpty
