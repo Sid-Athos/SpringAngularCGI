@@ -48,9 +48,9 @@ public class UserController {
     @ApiOperation(value = "Get User by Name")
     @RequestMapping(method = RequestMethod.GET, value = "/name/{name}")
     // FIXME not good path for REST ...
-    public List<UserJSON> getAllByAuthor(@ApiParam(value = "Name", required =
-            true) @PathVariable String author) {
-        return userService.getAllUsersByName(author);
+    public List<UserJSON> getAllByName(@ApiParam(value = "Name", required =
+            true) @PathVariable String name) {
+        return userService.getAllUsersByName(name);
     }
 
     @ApiOperation(value = "Get Users by Mail")
