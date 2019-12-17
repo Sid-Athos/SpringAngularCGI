@@ -39,10 +39,10 @@ public class UserController {
     @ApiOperation(value = "Add User", response = UserJSON.class)
     @RequestMapping(method = RequestMethod.POST, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public UserJSON addUser(@ApiParam(value = "User to Add", required = true) @Valid @RequestBody UserJSON book) {
+    public UserJSON addUser(@ApiParam(value = "User to Add", required = true) @Valid @RequestBody UserJSON user) {
         // test with @Valid : @Valid @RequestBody ... get Spring Bad Request 400 if NotEmpty
         // or JPA RollbackException (DB side)
-        return userService.addUser(book);
+        return userService.addUser(user);
     }
 
     @ApiOperation(value = "Get User by Name")
