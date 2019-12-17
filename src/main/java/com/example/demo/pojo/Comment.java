@@ -1,26 +1,31 @@
 package com.example.demo.pojo;
 
 import lombok.Data;
+import lombok.Generated;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import java.math.BigInteger;
 
 //see https://fxrobin.developpez.com/tutoriels/java/lombok-retour-experience/
+
+// Table to generate on launch
 @Data
 @Entity
-public class User {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    private String name;
+    private String idPost;
     @NotEmpty
-    private String pwd;
+    private String title;
     @NotEmpty
-    private String mail;
+    private String author;
+    @NotEmpty
+    private String content;
+
 }
