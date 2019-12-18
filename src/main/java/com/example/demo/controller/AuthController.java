@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @Api(tags = {"Auth"})
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "auth", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AuthController {
 
