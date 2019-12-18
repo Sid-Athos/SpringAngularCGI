@@ -27,7 +27,6 @@ public class PostController {
     @Resource
     private PostService postService; // Methods for the queries
 
-
     // Queries by operation.
     // Retrieves all posts
     @ApiOperation(value = "Get all Posts")
