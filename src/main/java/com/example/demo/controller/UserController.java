@@ -17,7 +17,7 @@ import java.util.List;
 @Slf4j
 @Api(tags = {"User"})
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping(value = "users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
 

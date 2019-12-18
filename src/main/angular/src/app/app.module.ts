@@ -5,7 +5,7 @@ import { SidComponent } from './sid/sid.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS, HttpRequest } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { UsersListComponent } from './users-list/users-list.component';
  // import { ConfigComponent } from './config/config.component';
 
@@ -22,7 +22,6 @@ import { UsersListComponent } from './users-list/users-list.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpRequest,
     RouterModule.forRoot(
       [
       { path: 'users', component: SidComponent },
@@ -32,8 +31,7 @@ import { UsersListComponent } from './users-list/users-list.component';
     )
   ],
   providers: [
-    AppComponent,
-    { provide  : HTTP_INTERCEPTORS, useClass: UsersListComponent, multi: true}
+    AppComponent
   ],
   bootstrap: [AppComponent]
 })
