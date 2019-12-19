@@ -17,14 +17,12 @@ import java.util.stream.Collectors;
 public class Mapper {
 
     public Post mapTo(PostJSON postJSON) {
-        Date d = new Date();
-        String c = d.toString();
         Assert.notNull(postJSON, "The postJSON must not be null");
         Post p = new Post();
         // must not set id !
         p.setTitle(postJSON.getTitle());
         p.setAuthor(postJSON.getAuthor());
-        p.setPostdate(c);
+        p.setPostdate(postJSON.getPostdate());
         p.setContent(postJSON.getContent());
         return p;
     }

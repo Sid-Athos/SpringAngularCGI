@@ -1,14 +1,24 @@
 package com.example.demo.service;
 
 import com.example.demo.helper.UserMapper;
+import com.example.demo.pojo.PostJSON;
 import com.example.demo.pojo.User;
 import com.example.demo.pojo.UserJSON;
 import com.example.demo.repository.UserRepository;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -40,8 +50,8 @@ public class UserService {
         return userMapper.mapTo(b);
     }
 
-    public List<UserJSON> getAllUsersByMail(String author) {
-        List<User> bookList = userRepository.findByMail(author);
+    public List<UserJSON> getAllUsersByMail(String mail) {
+        List<User> bookList = userRepository.findByMail(mail);
         return userMapper.mapTo(bookList);
     }
 

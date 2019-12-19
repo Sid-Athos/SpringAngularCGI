@@ -27,11 +27,11 @@ public class LikesMapper {
         return bJSON;
     }
 
-    public <Compteur> Compteur mapTo(Compteur compteur) {
+    /**public <Compteur> Compteur mapTo(Compteur compteur) {
         Assert.notNull(compteur, "The count must not be null");
         compteur.setCompteur(compteur.getCompteur());
         return compteur;
-    }
+    }*/
 
     public List<LikesJSON> mapTo(List<Likes> likesList) {
         Assert.notNull(likesList, "The likesList must not be null");
