@@ -19,12 +19,18 @@ public class LikesMapper {
         return b;
     }
     public LikesJSON mapTo(Likes likes) {
-        Assert.notNull(likes, "The book must not be null");
+        Assert.notNull(likes, "The likes must not be null");
         LikesJSON bJSON = new LikesJSON();
         bJSON.setId(likes.getId());
         bJSON.setAuthor(likes.getAuthor());
         bJSON.setPost(likes.getPost());
         return bJSON;
+    }
+
+    public <Compteur> Compteur mapTo(Compteur compteur) {
+        Assert.notNull(compteur, "The count must not be null");
+        compteur.setCompteur(compteur.getCompteur());
+        return compteur;
     }
 
     public List<LikesJSON> mapTo(List<Likes> likesList) {

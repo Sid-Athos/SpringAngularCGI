@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.pojo.LikesJSON;
+import com.example.demo.pojo.UserJSON;
 import com.example.demo.service.LikesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -44,4 +45,11 @@ public class LikesController {
             required = true) @PathVariable Long post) {
         return likesService.getLikesByPost(post);
     }
+
+    @ApiOperation(value = "Get all Likes")
+    @RequestMapping(method = RequestMethod.GET)
+    public List<LikesJSON> getAll() {
+        return likesService.getAllLikes();
+    }
+
 }

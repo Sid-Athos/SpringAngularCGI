@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.pojo.Likes;
+import com.example.demo.pojo.LikesJSON;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -14,8 +15,9 @@ public interface LikesRepository extends JpaRepository<Likes, Long>{
 
     //List<Like> findByAuthor(Long idPost);
 
-    @Query("SELECT b FROM Likes b WHERE b.post = :post")
-    List<Likes> findByPost(Long post);
-
+    @Query("SELECT l FROM Likes l WHERE post = :post")
+    List<Likes> findByPost(long post);
+    @Query("SELECT COUNT(l) as compteur FROM Likes l GROUP BY l.post")
     List<Likes> findAll();
+
 }
