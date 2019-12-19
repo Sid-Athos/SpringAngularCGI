@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @Api(tags = {"Post"})
 @RestController
-@CrossOrigin(origins = "http://localhost:4200\"")
+@CrossOrigin
 @RequestMapping(value = "posts", produces = MediaType.APPLICATION_JSON_VALUE)
 public class PostController {
 

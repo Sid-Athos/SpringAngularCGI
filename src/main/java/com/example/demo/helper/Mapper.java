@@ -5,29 +5,39 @@ import com.example.demo.pojo.PostJSON;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
+import java.security.Timestamp;
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+
 // Some JSON parser equivalent for JSON queries
 @Component
+
 public class Mapper {
 
     public Post mapTo(PostJSON postJSON) {
-        Assert.notNull(postJSON, "The bookJSON must not be null");
-        Post b = new Post();
+        Date d = new Date();
+        String c = d.toString();
+        Assert.notNull(postJSON, "The postJSON must not be null");
+        Post p = new Post();
         // must not set id !
-        b.setTitle(postJSON.getTitle());
-        b.setAuthor(postJSON.getAuthor());
-        b.setContent(postJSON.getContent());
-        return b;
+        p.setTitle(postJSON.getTitle());
+        p.setAuthor(postJSON.getAuthor());
+        p.setPostdate(c);
+        p.setContent(postJSON.getContent());
+        return p;
     }
 
-    public PostJSON mapTo(Post book) {
-        Assert.notNull(book, "The book must not be null");
+
+    public PostJSON mapTo(Post post) {
+        Assert.notNull(post, "The post must not be null");
         PostJSON bJSON = new PostJSON();
-        bJSON.setTitle(book.getTitle());
-        bJSON.setAuthor(book.getAuthor());
-        bJSON.setId(book.getId());
-        bJSON.setContent(book.getContent());
+        bJSON.setTitle(post.getTitle());
+        bJSON.setPostdate(post.getPostdate());
+        bJSON.setAuthor(post.getAuthor());
+        bJSON.setId(post.getId());
+        bJSON.setContent(post.getContent());
         return bJSON;
     }
 

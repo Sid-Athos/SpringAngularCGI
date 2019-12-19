@@ -12,21 +12,23 @@ public class CommentMapper {
 
     public Comment mapTo(CommentJSON commentJSON) {
         Assert.notNull(commentJSON, "The commentJSON must not be null");
-        Comment b = new Comment();
+        Comment c = new Comment();
         // must not set id !
-        b.setAuthor(commentJSON.getAuthor());
-        b.setContent(commentJSON.getContent());
-        return b;
+        c.setAuthor(commentJSON.getAuthor());
+        c.setContent(commentJSON.getContent());
+        c.setDate(commentJSON.getDate());
+        return c;
     }
 
     public CommentJSON mapTo(Comment comment) {
         Assert.notNull(comment, "The comment must not be null");
-        CommentJSON bJSON = new CommentJSON();
-        bJSON.setAuthor(comment.getAuthor());
-        bJSON.setId(comment.getId());
-        bJSON.setPostId(comment.getPostId());
-        bJSON.setContent(comment.getContent());
-        return bJSON;
+        CommentJSON cJSON = new CommentJSON();
+        cJSON.setAuthor(comment.getAuthor());
+        cJSON.setId(comment.getId());
+        cJSON.setPostId(comment.getPostId());
+        cJSON.setContent(comment.getContent());
+        cJSON.setDate(comment.getDate());
+        return cJSON;
     }
 
     public List<CommentJSON> mapTo(List<Comment> commentList) {
