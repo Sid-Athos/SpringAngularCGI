@@ -18,4 +18,6 @@ public class PostJSON implements Serializable {
     private String author;
     @NotEmpty
     private String content;
+    @NotEmpty
+    private String postdate;
 }

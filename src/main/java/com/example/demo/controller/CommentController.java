@@ -31,7 +31,7 @@ public class CommentController {
 
     // Select comments by post id
     @ApiOperation(value = "Get comment by post id")
-    @RequestMapping(method = RequestMethod.GET, value = "/comments/{id}")
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     // FIXME not good path for REST ...
     public List<CommentJSON> getAllByPostId(@ApiParam(value = "PostId",
             required = true) @PathVariable String id) {

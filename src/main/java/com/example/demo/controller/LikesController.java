@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.pojo.LikesJSON;
+import com.example.demo.pojo.UserJSON;
 import com.example.demo.service.LikesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -38,10 +39,17 @@ public class LikesController {
     // Retrieves author specific like
 
     @ApiOperation(value = "Get Likes by Post")
-    @RequestMapping(method = RequestMethod.GET, value = "/likes/{post}")
+    @RequestMapping(method = RequestMethod.GET, value = "/{post}")
     // FIXME not good path for REST ...
     public List<LikesJSON> getLikesByPost(@ApiParam(value = "Likes post",
             required = true) @PathVariable Long post) {
         return likesService.getLikesByPost(post);
     }
+
+    @ApiOperation(value = "Get all Likes")
+    @RequestMapping(method = RequestMethod.GET)
+    public List<LikesJSON> getAll() {
+        return likesService.getAllLikes();
+    }
+
 }

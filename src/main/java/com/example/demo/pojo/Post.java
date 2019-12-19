@@ -25,5 +25,7 @@ public class Post {
     private String author;
     @NotEmpty
     private String content;
+    @NotEmpty
+    private String postdate;
 }
 
