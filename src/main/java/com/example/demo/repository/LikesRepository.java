@@ -14,8 +14,9 @@ public interface LikesRepository extends JpaRepository<Likes, Long>{
 
     //List<Like> findByAuthor(Long idPost);
 
-    @Query("SELECT l FROM Likes l WHERE post = :post")
-    List<Likes> findByPost(long post);
+    @Query("SELECT l FROM Likes l WHERE post = :post AND author = :author")
+    List<Likes> findByPost(String post, String author);
+
     @Query("SELECT l FROM Likes l ORDER BY post ASC")
     List<Likes> findAll();
 

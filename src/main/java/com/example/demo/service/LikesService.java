@@ -23,9 +23,9 @@ public class LikesService {
     private LikesMapper likesMapper;
 
     @Cacheable(cacheManager = "redisCacheManager", cacheNames = "likes")
-    public List<LikesJSON> getLikesByPost(long post) {
+    public List<LikesJSON> getLikesByPost(String post, String author) {
         //log.info("Called for getLikeByPost ...");
-        List<Likes> b = likesRepository.findByPost(post);
+        List<Likes> b = likesRepository.findByPost(post, author);
         return likesMapper.mapTo(b);
     }
 

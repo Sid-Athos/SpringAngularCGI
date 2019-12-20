@@ -41,11 +41,11 @@ public class LikesController {
     // Retrieves author specific like
 
     @ApiOperation(value = "Get Likes by Post")
-    @RequestMapping(method = RequestMethod.GET, value = "/{post}")
+    @RequestMapping(method = RequestMethod.GET, value = "/{post}/{author}")
     // FIXME not good path for REST ...
     public List<LikesJSON> getLikesByPost(@ApiParam(value = "Likes post",
-            required = true) @PathVariable Long post) {
-        return likesService.getLikesByPost(post);
+            required = true) @PathVariable String post, String author) {
+        return likesService.getLikesByPost(post,author);
     }
     
 
