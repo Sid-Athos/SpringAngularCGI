@@ -14,7 +14,7 @@ public class CommentJSON implements Serializable {
 
     private Long id;
     @NotEmpty
-    private String postId;
+    private String postid;
     @NotEmpty
     private String date;
     @NotEmpty

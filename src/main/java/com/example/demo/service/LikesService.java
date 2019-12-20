@@ -3,8 +3,6 @@ package com.example.demo.service;
 import com.example.demo.helper.LikesMapper;
 import com.example.demo.pojo.Likes;
 import com.example.demo.pojo.LikesJSON;
-import com.example.demo.pojo.User;
-import com.example.demo.pojo.UserJSON;
 import com.example.demo.repository.LikesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;

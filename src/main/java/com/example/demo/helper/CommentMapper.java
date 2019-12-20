@@ -17,6 +17,8 @@ public class CommentMapper {
         c.setAuthor(commentJSON.getAuthor());
         c.setContent(commentJSON.getContent());
         c.setDate(commentJSON.getDate());
+        c.setPostid(commentJSON.getPostid());
+
         return c;
     }
 
@@ -25,7 +27,7 @@ public class CommentMapper {
         CommentJSON cJSON = new CommentJSON();
         cJSON.setAuthor(comment.getAuthor());
         cJSON.setId(comment.getId());
-        cJSON.setPostId(comment.getPostId());
+        cJSON.setPostid(comment.getPostid());
         cJSON.setContent(comment.getContent());
         cJSON.setDate(comment.getDate());
         return cJSON;

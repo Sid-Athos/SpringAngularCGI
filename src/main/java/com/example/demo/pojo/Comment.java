@@ -1,14 +1,12 @@
 package com.example.demo.pojo;
 
 import lombok.Data;
-import lombok.Generated;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
 
 //see https://fxrobin.developpez.com/tutoriels/java/lombok-retour-experience/
 
@@ -21,7 +19,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    private String postId;
+    private String postid;
     @NotEmpty
     private String date;
     @NotEmpty

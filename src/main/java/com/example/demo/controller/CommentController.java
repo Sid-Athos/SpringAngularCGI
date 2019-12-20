@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.pojo.PostJSON;
 import com.example.demo.service.CommentService;
 import com.example.demo.pojo.CommentJSON;
 import io.swagger.annotations.Api;
@@ -39,12 +40,10 @@ public class CommentController {
     }
 
     // Adds a comment
-    @ApiOperation(value = "Add Comment", response = CommentJSON.class)
+    @ApiOperation(value = "Add Comments", response = PostJSON.class)
     @RequestMapping(method = RequestMethod.POST, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public CommentJSON addComment(@ApiParam(value = "Comment to Add", required = true) @Valid @RequestBody CommentJSON comment) {
-        // test with @Valid : @Valid @RequestBody ... get Spring Bad Request 400 if NotEmpty
-        // or JPA RollbackException (DB side)
         return commentService.addComment(comment);
     }
 }
