@@ -14,15 +14,22 @@ INSERT INTO public.user( name, pwd,mail)
 VALUES ( 'Jaina Proudmoore', '123','Nein@fuck.com');
 VALUES ( 'Illidan Stormrage', '123','Nein@oo.com');
 
-INSERT INTO public.likes( post,author) VALUES ( 1,3);
+INSERT INTO public.likes(post,author) VALUES ( '1','1');
+INSERT INTO public.likes(post,author) VALUES ( '1','2');
+INSERT INTO public.likes(post,author) VALUES ( '1','3');
+INSERT INTO public.likes(post,author) VALUES ( '3','1');
+INSERT INTO public.likes(post,author) VALUES ( '3','3');
 
-INSERT INTO public.comment(date, author,content,post_id) VALUES (CURRENT_TIMESTAMP(),'Arthas Menethil',
-'kek', 1);
-INSERT INTO public.comment(date, author,content,post_id) VALUES (CURRENT_TIMESTAMP(),'Illidan Stormrage',
-'git gud', 1);
 
-INSERT INTO public.comment(date, author,content,post_id) VALUES (CURRENT_TIMESTAMP(),'Sylvanas Windrunner',
+INSERT INTO public.comment(date, author,content,postid) VALUES
+(CURRENT_TIMESTAMP(),'Arthas Menethil','kek', 1);
+INSERT INTO public.comment(date, author,content,postid) VALUES
+(CURRENT_TIMESTAMP(),'Illidan Stormrage','git gud', 1);
+
+INSERT INTO public.comment(date, author,content,postid) VALUES
+(CURRENT_TIMESTAMP(),'Sylvanas Windrunner',
 'Aliquam mattis vestibulum neque in porta ! :DD', 4);
 
-INSERT INTO public.comment(date, author,content,post_id) VALUES (CURRENT_TIMESTAMP(),'Illidan Stormrage',
+INSERT INTO public.comment(date, author,content,postid) VALUES
+(CURRENT_TIMESTAMP(),'Illidan Stormrage',
 'bien dit', 4);
