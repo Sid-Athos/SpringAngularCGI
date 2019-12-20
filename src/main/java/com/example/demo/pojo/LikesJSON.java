@@ -11,7 +11,7 @@ public class LikesJSON implements Serializable {
 
     private Long id;
     @NotEmpty
-    private Long post;
+    private String post;
     @NotEmpty
-    private Long author;
+    private String author;
 }

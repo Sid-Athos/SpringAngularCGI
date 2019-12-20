@@ -16,7 +16,7 @@ public class Likes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    private Long post;
+    private String post;
     @NotEmpty
-    private Long author;
+    private String author;
 }

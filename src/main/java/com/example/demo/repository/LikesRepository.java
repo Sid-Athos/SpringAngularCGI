@@ -17,7 +17,7 @@ public interface LikesRepository extends JpaRepository<Likes, Long>{
 
     @Query("SELECT l FROM Likes l WHERE post = :post")
     List<Likes> findByPost(long post);
-    @Query("SELECT COUNT(l) as compteur FROM Likes l GROUP BY l.post")
+    @Query("SELECT l FROM Likes l ORDER BY post ASC")
     List<Likes> findAll();
 
 }

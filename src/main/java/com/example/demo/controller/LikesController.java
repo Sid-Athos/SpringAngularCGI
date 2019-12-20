@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.pojo.LikesJSON;
+import com.example.demo.pojo.PostJSON;
 import com.example.demo.pojo.UserJSON;
 import com.example.demo.service.LikesService;
 import io.swagger.annotations.Api;
@@ -18,7 +19,7 @@ import java.util.List;
 @Slf4j
 @Api(tags = {"Like"})
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RequestMapping(value = "likes", produces = MediaType.APPLICATION_JSON_VALUE)
 public class LikesController {
 
@@ -27,13 +28,14 @@ public class LikesController {
 
     // Adds a likes
 
-    @ApiOperation(value = "Add Likes", response = LikesJSON.class)
+    @ApiOperation(value = "Add Likes", response = PostJSON.class)
     @RequestMapping(method = RequestMethod.POST, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public LikesJSON addLike(@ApiParam(value = "Likes to Add", required = true) @Valid @RequestBody LikesJSON likes) {
+    public LikesJSON addBook(@ApiParam(value = "Likes to Add",
+            required = true) @Valid @RequestBody LikesJSON post) {
         // test with @Valid : @Valid @RequestBody ... get Spring Bad Request 400 if NotEmpty
         // or JPA RollbackException (DB side)
-        return likesService.addLike(likes);
+        return likesService.addLike(post);
     }
 
     // Retrieves author specific like
@@ -45,6 +47,7 @@ public class LikesController {
             required = true) @PathVariable Long post) {
         return likesService.getLikesByPost(post);
     }
+    
 
     @ApiOperation(value = "Get all Likes")
     @RequestMapping(method = RequestMethod.GET)
