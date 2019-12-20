@@ -17,6 +17,9 @@ public interface LikesRepository extends JpaRepository<Likes, Long>{
     @Query("SELECT l FROM Likes l WHERE post = :post AND author = :author")
     List<Likes> findByPost(String post, String author);
 
+    @Query("DELETE FROM Likes l WHERE post = :post AND author = :author")
+    List<Likes> delete(String post, String author);
+
     @Query("SELECT l FROM Likes l ORDER BY post ASC")
     List<Likes> findAll();
 
