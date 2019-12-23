@@ -43,9 +43,18 @@ public class LikesController {
     @ApiOperation(value = "Get Likes by Post")
     @RequestMapping(method = RequestMethod.GET, value = "/{post}/{author}")
     // FIXME not good path for REST ...
-    public List<LikesJSON> getLikesByPost(@ApiParam(value = "Likes post",
-            required = true) @PathVariable String post, String author) {
+    public List<LikesJSON> getLikesByPost(@ApiParam(value = "Likes post author",
+            required = true) @PathVariable String post,@PathVariable String author) {
         return likesService.getLikesByPost(post,author);
+    }
+
+    @ApiOperation(value = "Delete Likes by Post")
+    @RequestMapping(method = RequestMethod.POST, value = "/{post}/{author}")
+    // FIXME not good path for REST ...
+    public void deleteLike(@ApiParam(value = "Delete post author",
+            required = true) @PathVariable String post,@PathVariable String author) {
+        likesService.delete(post,author);
+        return;
     }
     
 

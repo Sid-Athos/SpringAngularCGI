@@ -29,10 +29,11 @@ public class LikesService {
         return likesMapper.mapTo(b);
     }
 
-    public List<LikesJSON> delete(String post, String author) {
+
+    public void delete(String post, String author) {
         //log.info("Called for getLikeByPost ...");
-        List<Likes> b = likesRepository.delete(post, author);
-        return likesMapper.mapTo(b);
+        likesRepository.delete(post, author);
+        return;
     }
 
     public LikesJSON addLike(LikesJSON likes) {

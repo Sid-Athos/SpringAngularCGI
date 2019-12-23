@@ -1,10 +1,13 @@
 package com.example.demo.repository;
 
 import com.example.demo.pojo.Likes;
+import io.lettuce.core.dynamic.annotation.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -17,8 +20,10 @@ public interface LikesRepository extends JpaRepository<Likes, Long>{
     @Query("SELECT l FROM Likes l WHERE post = :post AND author = :author")
     List<Likes> findByPost(String post, String author);
 
+    @Transactional
+    @Modifying
     @Query("DELETE FROM Likes l WHERE post = :post AND author = :author")
-    List<Likes> delete(String post, String author);
+    void delete(String post, String author);
 
     @Query("SELECT l FROM Likes l ORDER BY post ASC")
     List<Likes> findAll();
