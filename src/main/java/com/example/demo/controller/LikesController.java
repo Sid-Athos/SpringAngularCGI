@@ -27,7 +27,9 @@ public class LikesController {
     // Adds a likes
 
     @ApiOperation(value = "Add Likes", response = PostJSON.class)
-    @RequestMapping(method = RequestMethod.POST, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST,
+            value = "/add/{like}", headers = {"Content-type" +
+            "=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public LikesJSON addBook(@ApiParam(value = "Likes to Add",
             required = true) @Valid @RequestBody LikesJSON post) {
@@ -44,6 +46,16 @@ public class LikesController {
     public List<LikesJSON> getLikesByPost(@ApiParam(value = "Likes post",
             required = true) @PathVariable Post post, User author) {
         return likesService.getLikesByPost(post,author);
+    }
+
+    @ApiOperation(value = "Delete Likes by Post")
+    @RequestMapping(method = RequestMethod.POST, value = "/{post" +
+            "}/{author}")
+    // FIXME not good path for REST ...
+    public void deleteLike(@ApiParam(value = "Delete post author",
+            required = true) @PathVariable Post post,@PathVariable User author) {
+        likesService.delete(post,author);
+        return;
     }
     
 
