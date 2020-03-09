@@ -14,11 +14,19 @@ public class CommentJSON implements Serializable {
 
     private Long id;
     @NotEmpty
-    private String postid;
+    private Post postId;
     @NotEmpty
     private String date;
     @NotEmpty
-    private String author;
+    private User author;
     @NotEmpty
     private String content;
+
+    public void setPostId(Post id) {
+        this.postId = id;
+    }
+
+    public Post getPostId() {
+        return postId;
+    }
 }

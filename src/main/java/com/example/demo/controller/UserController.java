@@ -60,4 +60,5 @@ public class UserController {
             true) @PathVariable String mail) {
         return userService.getAllUsersByMail(mail);
     }
+
 }

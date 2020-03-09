@@ -2,10 +2,7 @@ package com.example.demo.pojo;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Data
@@ -16,7 +13,9 @@ public class Likes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    private String post;
+    @ManyToOne
+    private Post post;
     @NotEmpty
-    private String author;
+    @OneToOne
+    private User author;
 }

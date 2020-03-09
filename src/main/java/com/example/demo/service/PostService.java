@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 // SQL methods resources
 @Slf4j
@@ -22,6 +24,8 @@ public class PostService {
     @Resource
     private Mapper mapper;
 
+    private Logger LOGGER = Logger.getLogger("logger");
+
     public List<PostJSON> getAllPosts() {
         //log.info("Called for getAllBooks ...");
         List<Post> bookList = postRepository.findAll();
@@ -31,6 +35,7 @@ public class PostService {
     @Cacheable(cacheManager = "redisCacheManager", cacheNames = "books", key = "#id")
     public PostJSON getPostById(long id) {
         //log.info("Called for getBookById ...");
+        LOGGER.log(Level.INFO,"Post ID : " + id);
         Post b = postRepository.getOne(id);
         return mapper.mapTo(b);
     }

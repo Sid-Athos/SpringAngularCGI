@@ -1,11 +1,10 @@
 package com.example.demo.pojo;
 
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 //see https://fxrobin.developpez.com/tutoriels/java/lombok-retour-experience/
@@ -18,12 +17,26 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotEmpty
-    private String postid;
+    @ManyToOne
+    private Post post;
+
     @NotEmpty
     private String date;
+
     @NotEmpty
-    private String author;
+    @OneToOne
+    private User author;
+
     @NotEmpty
     private String content;
+
+    public void setPostId(Post id) {
+        this.post = id;
+    }
+
+    public Post getPostId() {
+        return post;
+    }
 }

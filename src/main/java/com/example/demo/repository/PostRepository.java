@@ -13,13 +13,10 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
     /*JpaRepository will have all the functions of CrudRepository and PagingAndSortingRepository. So if you don't need
      the repository to have the functions provided by JpaRepository and PagingAndSortingRepository , use CrudRepository.*/
-    @Query("SELECT b FROM Post b ORDER BY postdate DESC")
+    @Query("SELECT b FROM Post b ORDER BY b.postdate DESC")
     List<Post> findAll();
 
     List<Post> findByAuthor(String author);
-
-    //@Query("INSERT INTO Post(postdate,title,author,content) VALUES" +
-           // "(CURRENT_TIMESTAMP(),:title,:author,:content")
 
     @Query("SELECT b FROM Post b WHERE b.title LIKE %:title%")
     List<Post> findByTitle(String title);

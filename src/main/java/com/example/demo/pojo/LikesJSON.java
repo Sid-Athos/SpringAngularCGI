@@ -2,6 +2,8 @@ package com.example.demo.pojo;
 
 import lombok.Data;
 
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
@@ -11,7 +13,9 @@ public class LikesJSON implements Serializable {
 
     private Long id;
     @NotEmpty
-    private String post;
+    @ManyToOne
+    private Post post;
     @NotEmpty
-    private String author;
+    @OneToOne
+    private User author;
 }

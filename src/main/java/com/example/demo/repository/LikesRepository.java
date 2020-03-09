@@ -1,6 +1,8 @@
 package com.example.demo.repository;
 
 import com.example.demo.pojo.Likes;
+import com.example.demo.pojo.Post;
+import com.example.demo.pojo.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -14,13 +16,13 @@ public interface LikesRepository extends JpaRepository<Likes, Long>{
 
     //List<Like> findByAuthor(Long idPost);
 
-    @Query("SELECT l FROM Likes l WHERE post = :post AND author = :author")
-    List<Likes> findByPost(String post, String author);
+    @Query("SELECT l FROM Likes l WHERE l.post = :post AND l.author = :author")
+    List<Likes> findByPost(Post post, User author);
 
-    @Query("DELETE FROM Likes l WHERE post = :post AND author = :author")
-    List<Likes> delete(String post, String author);
+    @Query("DELETE FROM Likes l WHERE l.post = :post AND l.author = :author")
+    List<Likes> delete(Post post, User author);
 
-    @Query("SELECT l FROM Likes l ORDER BY post ASC")
+    @Query("SELECT l FROM Likes l ORDER BY l.post.id ASC")
     List<Likes> findAll();
 
 }

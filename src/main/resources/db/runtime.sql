@@ -18,22 +18,24 @@ INSERT INTO public.user( name, pwd,mail)
 VALUES ( 'Jaina Proudmoore', '123','Nein@fuck.com');
 VALUES ( 'Illidan Stormrage', '123','Nein@oo.com');
 
-INSERT INTO public.likes(post,author) VALUES ( '1','1');
-INSERT INTO public.likes(post,author) VALUES ( '1','2');
-INSERT INTO public.likes(post,author) VALUES ( '1','3');
-INSERT INTO public.likes(post,author) VALUES ( '3','1');
-INSERT INTO public.likes(post,author) VALUES ( '3','3');
+SHOW TABLES;
+
+INSERT INTO public.likes(post_id,author_id) VALUES ( 1,1);
+INSERT INTO public.likes(post_id,author_id) VALUES ( 1,2);
+INSERT INTO public.likes(post_id,author_id) VALUES ( 1,3);
+INSERT INTO public.likes(post_id,author_id) VALUES ( 3,1);
+INSERT INTO public.likes(post_id,author_id) VALUES ( 3,3);
 
 
-INSERT INTO public.comment(date, author,content,postid) VALUES
-(CURRENT_TIMESTAMP(),'1','kek', '1');
-INSERT INTO public.comment(date, author,content,postid) VALUES
-(CURRENT_TIMESTAMP(),'3','git gud', '1');
+INSERT INTO public.comment(date, author_id,content,post_id) VALUES
+(CURRENT_TIMESTAMP(),1,'kek', 1);
+INSERT INTO public.comment(date, author_id,content,post_id) VALUES
+(CURRENT_TIMESTAMP(),3,'git gud', 1);
 
-INSERT INTO public.comment(date, author,content,postid) VALUES
-(CURRENT_TIMESTAMP(),'2',
-'Aliquam mattis vestibulum neque in porta ! :DD', '4');
+INSERT INTO public.comment(date, author_id,content,post_id) VALUES
+(CURRENT_TIMESTAMP(),2,
+'Aliquam mattis vestibulum neque in porta ! :DD', 4);
 
-INSERT INTO public.comment(date, author,content,postid) VALUES
-(CURRENT_TIMESTAMP(),'2',
-'bien dit', '4');
+INSERT INTO public.comment(date, author_id,content,post_id) VALUES
+(CURRENT_TIMESTAMP(),2,
+'bien dit', 4);
