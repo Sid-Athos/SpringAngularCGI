@@ -2,6 +2,8 @@ package com.example.harmonie.rest;
 
 import com.example.demo.pojo.PostJSON;
 import com.example.demo.service.CommentService;
+import com.example.demo.interfaces.CommentInterface;
+
 import com.example.demo.pojo.CommentJSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,7 +25,7 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping(value = "comments", produces = MediaType.APPLICATION_JSON_VALUE)
 
-public class CommentController {
+public class CommentController extends CommentInterface{
 
     @Resource
     private CommentService commentService; // Methods for the queries
@@ -34,6 +36,7 @@ public class CommentController {
     @ApiOperation(value = "Get comment by post id")
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     // FIXME not good path for REST ...
+    @Override
     public List<CommentJSON> getAllByPostId(@ApiParam(value = "PostId",
             required = true) @PathVariable String id) {
         return commentService.getAllCommentsByPost(id);
@@ -43,6 +46,7 @@ public class CommentController {
     @ApiOperation(value = "Add Comments", response = PostJSON.class)
     @RequestMapping(method = RequestMethod.POST, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
+    @Override
     public CommentJSON addComment(@ApiParam(value = "Comment to Add", required = true) @Valid @RequestBody CommentJSON comment) {
         return commentService.addComment(comment);
     }
