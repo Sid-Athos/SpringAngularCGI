@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.harmonie.rest;
 
 import com.example.demo.pojo.PostJSON;
 import com.example.demo.service.CommentService;
